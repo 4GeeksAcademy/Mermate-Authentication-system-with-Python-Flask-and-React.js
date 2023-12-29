@@ -39,6 +39,7 @@ def handle_hello2():
     return jsonify(response_body), 200
 
 # create_access_token() function is used to actually generate the JWT.
+
 # LOGIN
 
 @api.route("/login", methods=["POST"])
@@ -60,7 +61,7 @@ def login():
 #SIGNUP
 @api.route("/signup", methods=["POST"])
 def signup():
-    body = request.json.get()
+    body = request.get_json()
     print(body)
 
     user=User.query.filter_by(email=body["email"]).first()
