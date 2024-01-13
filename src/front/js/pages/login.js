@@ -3,36 +3,40 @@ import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 export const Login = () => {
-    const { store, actions } = useContext(Context);
 
     // dar memoria  a las variables 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+
+    //destructuring
+     const { store, actions } = useContext(Context);
 
 function sendData(e){
     e.preventDefault()
     console.log("send data")
     console.log(email, password)
 
+    actions.login(email, password)
+
       
-      const requestOptions = {
-        method: 'POST',
-        headers:{"content-type": "application/json"},
-        body: JSON.stringify(
-               {
+//   const requestOptions = {
+//       method: 'POST',
+//       headers:{"content-type": "application/json"},
+//       body: JSON.stringify(
+//              {
+//
+//              "email": email,
+//            "password": password
 
-               "email": email,
-               "password": password
+//               }
+//       )
 
-               }
-        )
-
-       };
+//      };
 
         
-        fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
-        .then(response => response.json())
-        .then(result => console.log(result))
+//       fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
+//       .then(response => response.json())
+//      .then(result => console.log(result))
      
 }
 
