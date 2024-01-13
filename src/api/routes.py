@@ -38,8 +38,18 @@ def handle_hello2():
 
     return jsonify(response_body), 200
 
-# create_access_token() function is used to actually generate the JWT.
+    #[GET] Listar los user
 
+@api.route('/user', methods=[ 'GET'])
+def get_user():
+
+    all_users=User.query.all()
+    results= list( map( lambda user:user.serialize(), all_users ))
+ 
+  
+    return jsonify( results), 200
+
+# create_access_token() function is used to actually generate the JWT.
 # LOGIN
 
 @api.route("/login", methods=["POST"])
@@ -68,7 +78,10 @@ def signup():
     print(user)
 
     if user == None:
-        user=User(email=body["email"], password=body["password"], is_active=True)
+        user=User(
+            email=body["email"],
+            password=body["password"],
+            is_active=True)
         db.session.add(user)
         db.session.commit()
         response_body={

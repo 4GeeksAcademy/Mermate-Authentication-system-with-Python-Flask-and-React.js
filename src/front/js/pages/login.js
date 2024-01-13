@@ -11,8 +11,29 @@ export const Login = () => {
 
 function sendData(e){
     e.preventDefault()
-    console.log()
-    console.log()
+    console.log("send data")
+    console.log(email, password)
+
+      
+      const requestOptions = {
+        method: 'POST',
+        headers:{"content-type": "application/json"},
+        body: JSON.stringify(
+               {
+
+               "email": email,
+               "password": password
+
+               }
+        )
+
+       };
+
+        
+        fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
+        .then(response => response.json())
+        .then(result => console.log(result))
+     
 }
 
     return (
@@ -21,9 +42,8 @@ function sendData(e){
           <form className="w-50 mx-auto " onSubmit={sendData}> 
                 <div className="mb-3">
                     <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-                    <input 
-                    value={email}
-                    onchange={(e)=> setEmail(e.target.value)}
+                    <input value={email}
+                    onChange={(e)=>setEmail(e.target.value)}
                     type="email"
                     className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
             
@@ -32,10 +52,10 @@ function sendData(e){
                     <label htmlFor="exampleInputPassword1" class="form-label">Password</label>
                     <input 
                     value={password}
-                    onchange={(e)=> setPassword(e.target.value)}
+                    onChange={(e)=> setPassword(e.target.value)}
                     type="password" class="form-control" id="exampleInputPassword1"/>
                 </div>
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary">Login</button>
         </form>
         </div>
         
