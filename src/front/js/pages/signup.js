@@ -3,7 +3,7 @@ import { Context } from "../store/appContext";
 import { Navigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const Signup = () => {
+export const Signup = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const { store, actions } = useContext(Context);
@@ -26,11 +26,11 @@ const Signup = () => {
     return (
         <>
             <div className="container text-center">
-                <h1>Sign up</h1>
+                <h1>Sign Up</h1>
                 <br />
-                <form>
+                <form className="w-50 mx-auto ">
                     <div className="mb-3">
-                        <label htmlFor="email" className="form-label">Email:</label>
+                        <label htmlFor="email" className="form-label">Email</label>
                         <input
                             type="email"
                             className="form-control"
@@ -40,7 +40,7 @@ const Signup = () => {
                         />
                     </div>
                     <div className="mb-3">
-                        <label htmlFor="password" className="form-label">Password:</label>
+                        <label htmlFor="password" className="form-label">Password</label>
                         <input
                             type="password"
                             className="form-control"
@@ -54,7 +54,7 @@ const Signup = () => {
                         className="btn btn-primary"
                         onClick={handleSignup}
                     >
-                        Signup
+                        Sign up
                     </button>
 
                     <Link to="/">
@@ -73,4 +73,3 @@ const Signup = () => {
     );
 };
 
-export default Signup;
