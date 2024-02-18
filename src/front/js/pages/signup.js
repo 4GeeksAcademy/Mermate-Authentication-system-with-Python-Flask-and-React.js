@@ -19,14 +19,9 @@ const Signup = () => {
 
     const handleSignup = () => {
         actions.signup(email, password);
-        // Después de realizar el registro, establece redirectToHome a true
-        setRedirectToHome(true);
+    
     };
 
-    // Si redirectToHome es true, redirige al usuario a la página principal
-    if (redirectToHome) {
-        return <Navigate to="/signupok" replace />;
-    }
 
     return (
         <>

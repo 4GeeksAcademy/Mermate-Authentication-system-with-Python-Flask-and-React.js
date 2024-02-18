@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Context } from "../store/appContext";
 import "../../styles/home.css";
+import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 
 export const Private = () => {
@@ -9,6 +11,7 @@ export const Private = () => {
     return (
         <>
             <div className="container text-center">
+            {store.auth === false ? <Navigate to="/"/> : null}
                 <div className="row align-items-start mt-5">
                     <div className="col">
 

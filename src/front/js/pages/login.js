@@ -24,7 +24,7 @@ function sendData(e){
 
     return (
         <div>
-            {store.auth===true?<Navigate to = "/private"/> : "Login to acces to your private area"}
+            {store.auth===true?<Navigate to = "/private"/> : "Login to access to your private area"}
           
           <form className="w-50 mx-auto " onSubmit={sendData}> 
                 <div className="mb-3">
@@ -43,6 +43,17 @@ function sendData(e){
                     type="password" class="form-control" id="exampleInputPassword1"/>
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
+                <div>
+                    <br></br>
+                    
+                   <div> 
+                    <h5> Or Signup </h5>
+                   </div>
+                
+                 
+              
+                </div>
+                
         </form>
         </div>
         
