@@ -24,7 +24,7 @@ function sendData(e){
 
     return (
         <div>
-            {store.auth===true?<Navigate to = "/Demo"/> : "no estás logueado introduce tu email y contraseña para acceder al contenido privado"}
+            {store.auth===true?<Navigate to = "/private"/> : "Login to acces to your private area"}
           
           <form className="w-50 mx-auto " onSubmit={sendData}> 
                 <div className="mb-3">
