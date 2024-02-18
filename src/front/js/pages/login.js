@@ -42,6 +42,7 @@ function sendData(e){
 
     return (
         <div>
+            {store.auth===true?"estás logueado te voy a enviar a demo( private)": "no estás logueado te muestro formulario signup"}
           
           <form className="w-50 mx-auto " onSubmit={sendData}> 
                 <div className="mb-3">
