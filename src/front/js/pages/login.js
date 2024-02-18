@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 export const Login = () => {
 
@@ -18,31 +19,12 @@ function sendData(e){
 
     actions.login(email, password)
 
-      
-//   const requestOptions = {
-//       method: 'POST',
-//       headers:{"content-type": "application/json"},
-//       body: JSON.stringify(
-//              {
-//
-//              "email": email,
-//            "password": password
-
-//               }
-//       )
-
-//      };
-
-        
-//       fetch(process.env.BACKEND_URL + "/api/login", requestOptions)
-//       .then(response => response.json())
-//      .then(result => console.log(result))
-     
+    
 }
 
     return (
         <div>
-            {store.auth===true?"estás logueado te voy a enviar a demo( private)": "no estás logueado te muestro formulario signup"}
+            {store.auth===true?<Navigate to = "/Demo"/> : "no estás logueado introduce tu email y contraseña para acceder al contenido privado"}
           
           <form className="w-50 mx-auto " onSubmit={sendData}> 
                 <div className="mb-3">

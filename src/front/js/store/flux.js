@@ -55,7 +55,46 @@ const getState = ({ getStore, getActions, setStore }) => {
 							console.log(data);
 						  })
 						  .catch(error => console.log('error', error));
-			},
+
+
+						},
+
+
+						logout: () => {
+							setStore({ auth: false});
+							localStorage.removeItem("token");
+							
+						},
+						
+
+			signup: (email, password) => {
+                const requestOptions = {
+                    method: 'POST',
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        "email": email,
+                        "password": password
+                    })
+                };
+
+                fetch(process.env.BACKEND_URL + "/api/signup", requestOptions)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.msg === "You've been successfully registered") {
+                            // Puedes realizar alguna acción adicional si el registro fue exitoso
+                            console.log("Registro exitoso:", data.msg);
+                        } else {
+                            // Puedes manejar errores o mostrar mensajes de error al usuario
+                            console.error("Error en el registro:", data.msg);
+                        }
+                    })
+                    .catch(error => console.log('error', error));
+            },
+
+
+
+
+		
 
 			getMessage: async () => {
 				try{
