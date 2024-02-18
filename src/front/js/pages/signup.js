@@ -49,6 +49,7 @@ export const Signup = () => {
                             onChange={handlePasswordChange}
                         />
                     </div>
+                    <Link to="/">
                     <button
                         type="button"
                         className="btn btn-primary"
@@ -56,6 +57,7 @@ export const Signup = () => {
                     >
                         Sign up
                     </button>
+                    </Link>
 
                     <Link to="/">
                     <button

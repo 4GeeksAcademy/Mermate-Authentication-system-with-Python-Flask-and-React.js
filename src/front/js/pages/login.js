@@ -48,6 +48,7 @@ function sendData(e){
                 </div>
                 
         </form>
+        <br></br>
         <p className="ask for account">¿Don't you have an account ?</p>
                     <div className="create an account ">
                         <Link to="/signup"><a>SIGN UP!</a></Link>
